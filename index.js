@@ -16,6 +16,9 @@ let leftArrowX = 100;
 
 console.log("hello")
 
+
+
+
 function setupCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -64,7 +67,7 @@ function drawPlayer() {
   ctx.font = "48px serif";
   leftArrowY -= 3;
   ctx.fillText(Lword, 75, leftArrowY);
-  // console.log(leftArrowY);
+  // console.log(leftPressed);
 }
 
 
@@ -103,6 +106,39 @@ function checkLWord() {
 }
 
 function checkButton() {
+
+//dev mode for using arrow keys
+  document.addEventListener("keydown", function(event) {
+   if (event.key == "ArrowLeft"){
+      leftPressed = true 
+        setTimeout(function(){ 
+        leftPressed = false; 
+    }, 100);
+    }
+
+   if (event.key == "ArrowUp"){
+      upPressed = true 
+        setTimeout(function(){ 
+        upPressed = false; 
+    }, 100);
+    }
+
+       if (event.key == "ArrowDown"){
+      downPressed = true 
+        setTimeout(function(){ 
+        downPressed = false; 
+    }, 100);
+    }
+
+       if (event.key == "ArrowRight"){
+      rightPressed = true 
+        setTimeout(function(){ 
+        rightPressed = false; 
+    }, 100);
+    }
+});
+
+
   if (upPressed) {
     ctx.fillStyle = stompColor;
     ctx.fillRect(250, 100, 100, 100);
@@ -138,6 +174,13 @@ function checkButton() {
     pressedColor = "black"
   }
 }
+
+// turns page shifting off when keys are pressed
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 
 function updatePlayer() {
