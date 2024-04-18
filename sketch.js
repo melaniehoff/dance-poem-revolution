@@ -143,13 +143,13 @@ function controllerInput() {
 
 var addWordToPoem = function(word) {
 
-            poem.push(word);
+    poem.push(word);
 
-            let poemDiv = document.getElementById("poem-area");
-            poemDiv.innerHTML += ("<br />" + word);
+    let poemDiv = document.getElementById("poem-area");
+    poemDiv.innerHTML += ("<br />" + word);
 
-            console.log("CURRENT POEM: " + poem);
-        };
+    console.log("CURRENT POEM: " + poem);
+};
 
 
 function preload() {
@@ -174,6 +174,12 @@ function preload() {
             stompGif: createImg('images/Rstomp.png'),
             width: (.725),
             key: "ArrowRight",
+        }),
+        makeArrow({
+            arrowGif: createImg("images/Larrow.gif"),
+            stompGif: createImg('images/Lstomp.png'),
+            width: (.125),
+            key: "ArrowLeft",
         })
     ];
 
@@ -193,45 +199,7 @@ function setup() {
 
 function draw() {
     background(bg);
-    let gameSpace = (windowWidth - roomForPoem);
-    Lw = (.125 * gameSpace);
-    Dw = (.325 * gameSpace);
-    Uw = (.525 * gameSpace);
-    Rw = (.725 * gameSpace);
-
-
-    leftArrowY -= wordSpeed;
-    text(Lword, Lw, leftArrowY);
-
-    // if (leftArrowY < 0) {
-    //     leftArrowY = displayHeight;
-    //     Lword = wordPool[Math.floor(Math.random() * wordPool.length)];
-    // }
-
-
-    // if (leftArrowY > 100 && leftArrowY < 200) {
-    //     // console.log(Lword + " is in range");
-    //     LwithinRange = true;
-    // } else {
-    //     LwithinRange = false;
-    // }
-
-
-    // if (LwithinRange == true && leftPressed == true) {
-    //     console.log("ADD WORD TO POEM: " + Lword)
-    //     addWordToPoem();
-    // }
-
-
-    // //  ARROW GIFS
-    // Larrow.position(Lw, 100);
-    // Larrow.size(100, 100)
-    // Darrow.position(Dw, 100);
-    // Darrow.size(100, 100)
-    // Uarrow.position(Uw, 100);
-    // Uarrow.size(100, 100)
-    // Rarrow.position(Rw, 100);
-    // Rarrow.size(100, 100)
+    // let gameSpace = (windowWidth - roomForPoem);
 
 
     for (arrow of arrowObjects) {
