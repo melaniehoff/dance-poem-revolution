@@ -86,9 +86,12 @@ function makeArrow(info) {
 
             }
 
+            // // Alignment lines for arrows & words:
+            // stroke(240, 0, 0)
+            // line(width + 50, 0, width + 50, windowHeight)
 
             wordY -= wordSpeed;
-            text(word, width, wordY);
+            text(word, width + 50, wordY); // add 50 to line up with arrows
             // image(Lstomp, Lw, 100, 100, 100);
             if (buttonPressed) {
                 image(info.stompGif, width, 100, 100, 100);
