@@ -75,7 +75,7 @@ function makeArrow(info) {
 
                 if (wordWithinRange == true && buttonPressed == true) {
                     console.log("ADD WORD TO POEM: " + word)
-                    addWordToPoem(word);
+                    addWordToPoem(word, info.key);
                     wordAdded = true;
                     setTimeout(function() {
                         wordAdded = false;
@@ -142,12 +142,18 @@ function controllerInput() {
     }
 }
 
-var addWordToPoem = function(word) {
+var addWordToPoem = function(word, key) {
 
     poem.push(word);
 
+    let className = "";
+    if (key == "ArrowLeft") {className = "word-left"}
+    if (key == "ArrowDown") {className = "word-down"}
+    if (key == "ArrowUp") {className = "word-up"}
+    if (key == "ArrowRight") {className = "word-right"}
+
     let poemDiv = document.getElementById("poem-area");
-    poemDiv.innerHTML += ("<br />" + word);
+    poemDiv.innerHTML += (`<div class="${className}"> ${word}</div>`);
 
     console.log("CURRENT POEM: " + poem);
 };
