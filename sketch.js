@@ -96,6 +96,7 @@ function makeArrow(info) {
             } else {
                 info.arrowGif.position(width, 100);
                 info.arrowGif.size(100, 100);
+                info.stompGif.hide();
             }
 
             // if (LwithinRange == true && leftPressed == true) {
@@ -153,8 +154,8 @@ var addWordToPoem = function(word) {
 
 
 function preload() {
-    Larrow = createImg("images/Larrow.gif");
-    Lstomp = createImg('images/Lstomp.png');
+    // Larrow = createImg("images/Larrow.gif");
+    // Lstomp = createImg('images/Lstomp.png');
 
     arrowObjects = [
         makeArrow({
@@ -251,7 +252,6 @@ function gameLoop() {
 gameLoop();
 
 function windowResized() {
-    resizeCanvas(window.innerWidth, window.innerHeight);
-    console.log("resized")
-    background('white');
+    resizeCanvas(window.innerWidth - roomForPoem, window.innerHeight);
+    background(bg);
 }
