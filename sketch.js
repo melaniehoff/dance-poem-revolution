@@ -3,6 +3,8 @@ const wordPool = ["the", "let", "yet", "animal", "softly", "stomps", "piglet", "
 const roomForPoem = 420;
 const bg = 248;
 const text_size = 40;
+const soundFiles = ["1.wav", "2.mp3", "3.mp3", "4.mp3", "5.mp3", "6.mp3", "7.mp3", "8.mp3"];
+
 
 //GAMEPAD VARS
 let controllerIndex = null;
@@ -21,7 +23,6 @@ let Dw;
 let Uw;
 let Rw;
 let Larrow, Darrow, Uarrow, Rarrow;
-let bg_gif;
 
 let arrowObjects;
 
@@ -183,6 +184,13 @@ function controllerInput() {
 var addWordToPoem = function(word, key) {
 
     poem.push(word);
+
+    const random = Math.floor(Math.random() * soundFiles.length);
+    console.log(soundFiles[random]);
+    const randomSound = soundFiles[random];
+
+    var audio = new Audio('sounds/'+ randomSound);
+    audio.play();
 
     let className = "";
     if (key == "ArrowLeft") {
