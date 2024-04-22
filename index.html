@@ -9,19 +9,39 @@
       body {
         margin: 0px;
         padding: 0px;
-        background-color: black;
+        background-color: white;
+      }
+
+      #wrapper {
+      width: 100%;
       }
 
       #poem-area-container {
-        width: 395px;
+        width: 417px;
         float: right;
-        height: 1000px;
-        background-color: rgb(240,240,240);
+        height: 100vh;
+        background-color: rgb(249,249,249);
+        border-left: dashed;
       }
 
       #poem-area {
         padding: 20px;
         font-size: 2em;
+        overflow-y: scroll;
+        position: fixed;
+         right: -.4em;
+        top: 13vh;
+        height: 80vh;
+     }
+
+      .center {
+      display: block;
+      margin:0 auto;
+      }
+
+      #logo {
+      width: 15vw;
+      margin-top: 1em;
       }
 
       .word-left {
@@ -37,19 +57,22 @@
         padding-left: calc(3* 320px / 4);
       }
 
+
   </style>
   <script src="p5.min.js"></script>
+  <!-- <script src="p5.sound.js"></script> -->
   <script src="sketch.js"></script>
 </head>
 
 <body>
-  <main>
-
+  <wrapper>
+<!-- <a href="javascript:void(0);" onclick="printPageArea('poem-area-container')">Print</a> -->
 
     <div id="poem-area-container">
+      <img class="center" id="logo" src="images/logo.png">
     <div id="poem-area"></div>
     </div>
-  </main>
+  </wrapper>
 </body>
 
 </html>

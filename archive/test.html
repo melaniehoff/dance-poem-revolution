@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Floating Words</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const columns = 4;
+    const columnWidth = canvas.width / columns;
+    const words = ["Word1", "Word2", "Word3", "Word4", "Word5", "Word6", "Word7", "Word8"]; // Add more words if needed
+    const speed = 2;
+    const wordsPerColumn = 5; // Number of words per column
+
+    const wordData = [];
+    for (let c = 0; c < columns; c++) {
+      for (let i = 0; i < wordsPerColumn; i++) {
+        wordData.push({
+          text: words[i % words.length],
+          x: c * columnWidth + columnWidth / 2,
+          y: canvas.height - (i + 1) * 30,
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#000";
+      ctx.font = "20px Arial";
+
+      wordData.forEach((data) => {
+        ctx.fillText(data.text, data.x, data.y);
+        data.y -= speed;
+        if (data.y < 0) {
+          data.y = canvas.height;
+        }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    draw();
+  </script>
+</body>
+
+</html>

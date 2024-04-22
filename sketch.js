@@ -1,8 +1,8 @@
 const poem = [];
 const wordPool = ["the", "let", "yet", "animal", "softly", "stomps", "piglet", "furry", "articulated", "a", "my", "your", "their", "our", "we", "do", "dance", "swing", "leap", "kiss", "running", "crashing", "crushing", "smashing", "bloodlet", "muscles", "rushing", "overflowing", "ocean", "song", "choir", "prayer", "praying", "cast", "a", "spell", "a", "the", "doctor", "help", "helping", "burying", "you"];
-const roomForPoem = 400;
+const roomForPoem = 420;
 const bg = 248;
-const text_size = 38;
+const text_size = 40;
 
 //GAMEPAD VARS
 let controllerIndex = null;
@@ -21,6 +21,7 @@ let Dw;
 let Uw;
 let Rw;
 let Larrow, Darrow, Uarrow, Rarrow;
+let bg_gif;
 
 let arrowObjects;
 
@@ -33,10 +34,13 @@ console.log("DANCE POEM REVOLUTION");
 
 function makeArrow(info) {
     let wordY = displayHeight;
-    let wordInRange;
-    let buttonPressed;
+    let wordY2 = (displayHeight - 500);
     let word = wordPool[Math.floor(Math.random() * wordPool.length)];
+    let word2 = wordPool[Math.floor(Math.random() * wordPool.length)];
+    let buttonPressed;
     let wordAdded = false;
+    let wordAdded2 = false;
+
 
 
     //dev mode for using arrow keys
@@ -56,9 +60,17 @@ function makeArrow(info) {
             let gameSpace = (windowWidth - roomForPoem);
             let width = (info.width * gameSpace);
 
+            
+
+
             if (wordY < 0) {
                 wordY = displayHeight;
                 word = wordPool[Math.floor(Math.random() * wordPool.length)];
+            };
+
+            if (wordY2 < 0) {
+                wordY2 = displayHeight;
+                word2 = wordPool[Math.floor(Math.random() * wordPool.length)];
             };
 
             if (!wordAdded) {
@@ -86,12 +98,39 @@ function makeArrow(info) {
 
             }
 
+            if (!wordAdded2) {
+
+                let wordWithinRange2 = false;
+
+                if (wordY2 > 100 && wordY2 < 200) {
+                    // console.log(Lword + " is in range");
+                    wordWithinRange2 = true;
+                } else {
+                    wordWithinRange2 = false;
+                }
+
+
+                if (wordWithinRange2 == true && buttonPressed == true) {
+                    console.log("ADD WORD TO POEM: " + word2)
+                    addWordToPoem(word2, info.key);
+                    wordAdded2 = true;
+                    setTimeout(function() {
+                        wordAdded2 = false;
+                    }, 200);
+
+                }
+
+
+            }
+
             // // Alignment lines for arrows & words:
             // stroke(240, 0, 0)
             // line(width + 50, 0, width + 50, windowHeight)
 
             wordY -= wordSpeed;
+            wordY2 -= wordSpeed;
             text(word, width + 50, wordY); // add 50 to line up with arrows
+            text(word2, width + 50, wordY2); // add 50 to line up with arrows
             // image(Lstomp, Lw, 100, 100, 100);
             if (buttonPressed) {
                 image(info.stompGif, width, 100, 100, 100);
@@ -102,10 +141,6 @@ function makeArrow(info) {
                 info.stompGif.hide();
             }
 
-            // if (LwithinRange == true && leftPressed == true) {
-            //     console.log("ADD WORD TO POEM: " + Lword)
-            //     addWordToPoem();
-            // }
 
         },
     };
@@ -150,21 +185,32 @@ var addWordToPoem = function(word, key) {
     poem.push(word);
 
     let className = "";
-    if (key == "ArrowLeft") {className = "word-left"}
-    if (key == "ArrowDown") {className = "word-down"}
-    if (key == "ArrowUp") {className = "word-up"}
-    if (key == "ArrowRight") {className = "word-right"}
+    if (key == "ArrowLeft") {
+        className = "word-left"
+    }
+    if (key == "ArrowDown") {
+        className = "word-down"
+    }
+    if (key == "ArrowUp") {
+        className = "word-up"
+    }
+    if (key == "ArrowRight") {
+        className = "word-right"
+    }
 
     let poemDiv = document.getElementById("poem-area");
     poemDiv.innerHTML += (`<div class="${className}"> ${word}</div>`);
 
     console.log("CURRENT POEM: " + poem);
+
+    var objDiv = document.getElementById("poem-area");
+        objDiv.scrollTop = objDiv.scrollHeight;
+
 };
 
 
 function preload() {
-    // Larrow = createImg("images/Larrow.gif");
-    // Lstomp = createImg('images/Lstomp.png');
+    // bg_gif = createImg("images/water.gif");
 
     arrowObjects = [
         makeArrow({
@@ -199,16 +245,19 @@ function preload() {
 function setup() {
     // put setup code here
     createCanvas((windowWidth - roomForPoem), displayHeight);
-    background(bg);
+    // background(bg);
     leftArrowY = displayHeight;
     textSize(text_size);
     strokeWeight(0.5);
     textAlign(CENTER);
+
+
 }
 
 
 function draw() {
     background(bg);
+
     // let gameSpace = (windowWidth - roomForPoem);
 
 
@@ -248,13 +297,37 @@ function draw() {
 // }
 
 
+//PRINT
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'p') {
+    printPageArea('poem-area-container');
+  }
+});
+
+
+//RELOAD GAME/REFRESH PAGE
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'r') {
+    location.reload();
+  }
+});
+
+function printPageArea(areaID){
+    console.log("printing "+areaID);
+    var printContent = document.getElementById(areaID).innerHTML;
+    var originalContent = document.body.innerHTML;
+    document.body.innerHTML = printContent;
+    window.print();
+    document.body.innerHTML = originalContent;
+}
+
 function updatePlayer() {
     // checkButton();
 }
 
 function gameLoop() {
     controllerInput();
-    updatePlayer();
+    // updatePlayer();
     requestAnimationFrame(gameLoop);
 }
 
