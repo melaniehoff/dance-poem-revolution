@@ -1,10 +1,11 @@
 const poem = [];
-const wordPool = ["the", "let", "yet", "animal", "softly", "stomps", "piglet", "furry", "articulated", "a", "my", "your", "their", "our", "we", "do", "dance", "swing", "leap", "kiss", "running", "crashing", "crushing", "smashing", "bloodlet", "muscles", "rushing", "overflowing", "ocean", "song", "choir", "prayer", "praying", "cast", "a", "spell", "a", "the", "doctor", "help", "helping", "burying", "you"];
+// const wordPool = ["the", "let", "yet", "animal", "softly", "stomps", "piglet", "furry", "articulated", "a", "my", "your", "their", "our", "we", "do", "dance", "swing", "leap", "kiss", "running", "crashing", "crushing", "smashing", "bloodlet", "muscles", "rushing", "overflowing", "ocean", "song", "choir", "prayer", "praying", "cast", "a", "spell", "a", "the", "doctor", "help", "helping", "burying", "you"];
+const wordPool1 = ["skip" , "to" , "main" , "content" , "search" , "sign" , "up" , "log" , "in" , "video" , "audio" , "sign" , "up" , "for" , "free" , "log" , "in" , "search" , "search" , "text" , "contents" , "search" , "news" , "search" , "radio" , "search" , "web" , "advanced" , "search" , "about" , "help" , "donate" , "contact" , "volunteer" , "people" , "full" , "text" , "of" , "the" , "only" , "way" , "out" , "is" , "always" , "through" , "the" , "police" , "a" , "history" , "of" , "the" , "new" , "york" , "see" , "other" , "the" , "only" , "way" , "out" , "is" , "always" , "through" , "the" , "police" , "a" , "history" , "of" , "the" , "new" , "york" , "with" , "no" , "nor" , "as" , "it" , "to" , "the" , "matter" , "of" , "the" , "unending" , "police" , "violence" , "and" , "all" , "the" , "of" , "those" , "who" , "have" , "wished" , "to" , "end" , "it" , "but" , "have" , "not" , "done" , "so" , "for" , "whatever" , "reason" , "the" , "only" , "way" , "out" , "is" , "always" , "through" , "the" , "police" , "a" , "of" , "the" , "new" , "york" , "with" , "no" , "nor" , "as" , "it" , "to" , "the" , "matter" , "of" , "the" , "unending" , "police" , "violence" , "and" , "all" , "the" , "of" , "those" , "who" , "have" , "wished" , "to" , "end" , "it" , "but" , "have" , "not" , "done" , "so" , "for" , "whatever" , "reason" , "s" , "y" , "here" , "is" , "a" , "cop" , "inside" , "our" , "society" , "is" , "a" , "power" , "plant" , "that" , "on" , "unwept" , "a" , "new" , "world" , "is" , "in" , "our" , "hearts" , "which" , "is" , "a" , "muscle" , "the" , "size" , "of" , "a" , "fist" , "build" , "the" , "commune" , "sabotage" , "a" , "railroad" , "distribute" , "food" , "not" , "canvass" , "for" , "or" , "weep" , "without" , "while" , "dumping" , "your" , "into" , "the" , "ocean" , "and" , "planting" , "a" , "radical" , "urban" , "gar" , "den" , "but" , "know" , "that" , "these" , "fantastic" , "are" , "happening" , "de" , "spite" , "yourself" , "on" , "a" , "beach" , "beneath" , "a" , "world" , "ruined" , "and" , "with" , "all" , "of" , "our" , "past" , "dead" , "from" , "carry" , "heavy" , "in" , "the" , "hearts" , "of" , "those" , "with" , "the" , "and" , "to" , "cast" , "aside" , "real" , "worldly" , "as" , "they" , "sit" , "and" , "take" , "their" , "time" , "to" , "work" , "out" , "within" , "themselves" , "they" , "murder" , "imaginary" , "inside" , "their" , "while" , "real" , "kick" , "down" , "real" , "and" , "smash" , "real" , "into" , "everyone" , "else" , "s" , "real" , "drawing" , "real" , "blood" , "and" , "actually" , "wept" , "racism" , "and" , "problematic" , "feminist" , "transnational" , "praxis" , "all" , "disappear" , "in" , "the" , "path" , "of" , "an" , "officer" , "s" , "night" , "stick" , "whose" , "blow" , "is" , "fast" , "approaching" , "maybe" , "our" , "hearts" , "and" , "are" , "good" , "enough" , "for" , "the" , "time" , "being" , "despite" , "the" , "unfinished" , "work" , "maybe" , "the" , "reason" , "no" , "one" , "ever" , "the" , "work" , "is" , "because" , "we" , "been" , "internal" , "a" , "struggle" , "that" , "was" , "always" , "meant" , "to" , "be" , "external" , "we" , "interrogate" , "ourselves" , "into" , "a" , "deep" , "slouch" , "as" , "our" , "en" , "dure" , "the" , "same" , "of" , "suffering"]
+const wordPool = wordPool1.sort((a, b) => 0.5 - Math.random());
 const roomForPoem = 420;
 const bg = 248;
 const text_size = 40;
-const soundFiles = ["1.wav", "2.mp3", "3.mp3", "4.mp3", "5.mp3", "6.mp3", "7.mp3", "8.mp3"];
-
+const soundFiles = ["1.wav", "2.mp3", "3.mp3", "4.mp3", "6.mp3", "7.mp3", "8.mp3"];
 
 //GAMEPAD VARS
 let controllerIndex = null;
@@ -25,6 +26,9 @@ let Rw;
 let Larrow, Darrow, Uarrow, Rarrow;
 
 let arrowObjects;
+
+
+// fetch("texts/2020-RAD.txt").then( data => {});
 
 // closure/function that creates a scope that returns other functions
 // makeArrow takes as an argument all the things are particular to that arrow
@@ -146,6 +150,7 @@ function makeArrow(info) {
         },
     };
 }
+
 
 
 window.addEventListener("gamepadconnected", (event) => {
