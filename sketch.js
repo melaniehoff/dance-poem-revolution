@@ -1,5 +1,7 @@
 const poem = [];
-const wordPool1 = ["skip", "to", "main", "content", "search", "sign", "up", "log", "in", "video", "audio", "sign", "up", "for", "free", "log", "in", "search", "search", "text", "contents", "search", "news", "search", "radio", "search", "web", "advanced", "search", "about", "help", "donate", "contact", "volunteer", "people", "full", "text", "of", "the", "only", "way", "out", "is", "always", "through", "the", "police", "a", "history", "of", "the", "new", "york", "see", "other", "the", "only", "way", "out", "is", "always", "through", "the", "police", "a", "history", "of", "the", "new", "york", "with", "no", "nor", "as", "it", "to", "the", "matter", "of", "the", "unending", "police", "violence", "and", "all", "the", "of", "those", "who", "have", "wished", "to", "end", "it", "but", "have", "not", "done", "so", "for", "whatever", "reason", "the", "only", "way", "out", "is", "always", "through", "the", "police", "a", "of", "the", "new", "york", "with", "no", "nor", "as", "it", "to", "the", "matter", "of", "the", "unending", "police", "violence", "and", "all", "the", "of", "those", "who", "have", "wished", "to", "end", "it", "but", "have", "not", "done", "so", "for", "whatever", "reason", "s", "y", "here", "is", "a", "cop", "inside", "our", "society", "is", "a", "power", "plant", "that", "on", "unwept", "a", "new", "world", "is", "in", "our", "hearts", "which", "is", "a", "muscle", "the", "size", "of", "a", "fist", "build", "the", "commune", "sabotage", "a", "railroad", "distribute", "food", "not", "canvass", "for", "or", "weep", "without", "while", "dumping", "your", "into", "the", "ocean", "and", "planting", "a", "radical", "urban", "gar", "den", "but", "know", "that", "these", "fantastic", "are", "happening", "de", "spite", "yourself", "on", "a", "beach", "beneath", "a", "world", "ruined", "and", "with", "all", "of", "our", "past", "dead", "from", "carry", "heavy", "in", "the", "hearts", "of", "those", "with", "the", "and", "to", "cast", "aside", "real", "worldly", "as", "they", "sit", "and", "take", "their", "time", "to", "work", "out", "within", "themselves", "they", "murder", "imaginary", "inside", "their", "while", "real", "kick", "down", "real", "and", "smash", "real", "into", "everyone", "else", "s", "real", "drawing", "real", "blood", "and", "actually", "wept", "racism", "and", "problematic", "feminist", "transnational", "praxis", "all", "disappear", "in", "the", "path", "of", "an", "officer", "s", "night", "stick", "whose", "blow", "is", "fast", "approaching", "maybe", "our", "hearts", "and", "are", "good", "enough", "for", "the", "time", "being", "despite", "the", "unfinished", "work", "maybe", "the", "reason", "no", "one", "ever", "the", "work", "is", "because", "we", "been", "internal", "a", "struggle", "that", "was", "always", "meant", "to", "be", "external", "we", "interrogate", "ourselves", "into", "a", "deep", "slouch", "as", "our", "en", "dure", "the", "same", "of", "suffering", "the", "let", "yet", "animal", "softly", "stomps", "piglet", "furry", "articulated", "a", "my", "your", "their", "our", "we", "do", "dance", "swing", "leap", "kiss", "running", "crashing", "crushing", "smashing", "bloodlet", "muscles", "rushing", "overflowing", "ocean", "song", "choir", "prayer", "praying", "cast", "a", "spell", "a", "the", "doctor", "help", "helping", "burying", "you"]
+const wordPool1 = [
+    "skip", "to", "main", "content", "search", "sign", "up", "log", "in", "video", "audio", "sign", "up", "for", "free", "log", "in", "search", "search", "text", "contents", "search", "news", "search", "radio", "search", "web", "advanced", "search", "about", "help", "donate", "contact", "volunteer", "people", "full", "text", "of", "the", "only", "way", "out", "is", "always", "through", "the", "police", "a", "history", "of", "the", "new", "york", "see", "other", "the", "only", "way", "out", "is", "always", "through", "the", "police", "a", "history", "of", "the", "new", "york", "with", "no", "nor", "as", "it", "to", "the", "matter", "of", "the", "unending", "police", "violence", "and", "all", "the", "of", "those", "who", "have", "wished", "to", "end", "it", "but", "have", "not", "done", "so", "for", "whatever", "reason", "the", "only", "way", "out", "is", "always", "through", "the", "police", "a", "of", "the", "new", "york", "with", "no", "nor", "as", "it", "to", "the", "matter", "of", "the", "unending", "police", "violence", "and", "all", "the", "of", "those", "who", "have", "wished", "to", "end", "it", "but", "have", "not", "done", "so", "for", "whatever", "reason", "s", "y", "here", "is", "a", "cop", "inside", "our", "society", "is", "a", "power", "plant", "that", "on", "unwept", "a", "new", "world", "is", "in", "our", "hearts", "which", "is", "a", "muscle", "the", "size", "of", "a", "fist", "build", "the", "commune", "sabotage", "a", "railroad", "distribute", "food", "not", "canvass", "for", "or", "weep", "without", "while", "dumping", "your", "into", "the", "ocean", "and", "planting", "a", "radical", "urban", "gar", "den", "but", "know", "that", "these", "fantastic", "are", "happening", "de", "spite", "yourself", "on", "a", "beach", "beneath", "a", "world", "ruined", "and", "with", "all", "of", "our", "past", "dead", "from", "carry", "heavy", "in", "the", "hearts", "of", "those", "with", "the", "and", "to", "cast", "aside", "real", "worldly", "as", "they", "sit", "and", "take", "their", "time", "to", "work", "out", "within", "themselves", "they", "murder", "imaginary", "inside", "their", "while", "real", "kick", "down", "real", "and", "smash", "real", "into", "everyone", "else", "s", "real", "drawing", "real", "blood", "and", "actually", "wept", "racism", "and", "problematic", "feminist", "transnational", "praxis", "all", "disappear", "in", "the", "path", "of", "an", "officer", "s", "night", "stick", "whose", "blow", "is", "fast", "approaching", "maybe", "our", "hearts", "and", "are", "good", "enough", "for", "the", "time", "being", "despite", "the", "unfinished", "work", "maybe", "the", "reason", "no", "one", "ever", "the", "work", "is", "because", "we", "been", "internal", "a", "struggle", "that", "was", "always", "meant", "to", "be", "external", "we", "interrogate", "ourselves", "into", "a", "deep", "slouch", "as", "our", "en", "dure", "the", "same", "of", "suffering", "the", "let", "yet", "animal", "softly", "stomps", "piglet", "furry", "articulated", "a", "my", "your", "their", "our", "we", "do", "dance", "swing", "leap", "kiss", "running", "crashing", "crushing", "smashing", "bloodlet", "muscles", "rushing", "overflowing", "ocean", "song", "choir", "prayer", "praying", "cast", "a", "spell", "a", "the", "doctor", "help", "helping", "burying", "you"
+]
 const wordPool = wordPool1.sort((a, b) => 0.5 - Math.random());
 const roomForPoem = 420;
 const bg = 248;
@@ -26,7 +28,6 @@ let Larrow, Darrow, Uarrow, Rarrow;
 
 let arrowObjects;
 
-
 // fetch("texts/2020-RAD.txt").then( data => {});
 
 // closure/function that creates a scope that returns other functions
@@ -35,6 +36,65 @@ let arrowObjects;
 
 
 console.log("DANCE POEM REVOLUTION");
+
+const keyController = {
+    "ArrowUp": {
+        pressed: false, 
+        // func: callArrowUp
+    },
+    "ArrowDown": {
+        pressed: false, 
+        // func: callArrowDown
+    },
+    "ArrowLeft": {
+        pressed: false, 
+        // func: callArrowLeft
+    },
+    "ArrowRight": {
+        pressed: false, 
+        // func: callArrowRight
+    }
+}
+// let noKeysPressed = true;
+
+// TODO: combine with other keydown listeners
+document.addEventListener("keydown", e => {
+    if (keyController[e.key]) {
+        keyController[e.key].pressed = true;
+    }
+    // noKeysPressed = false;
+})
+
+document.addEventListener("keyup", e => {
+    if (keyController[e.key]) {
+        keyController[e.key].pressed = false;
+    }
+
+    // if (Object.keys(keyController).every(key => !keyController[key].pressed)) {
+    //     noKeysPressed = true;
+    //     console.log('no keys pressed')
+    // }
+})
+
+const executeMoves = () => {
+    Object.keys(keyController).forEach(key => {
+        keyController[key].pressed 
+        // && keyController[key].func()
+    })
+}
+
+// function callArrowUp () {
+//     // console.log('up arrow')
+// }
+// function callArrowDown () {
+//     // console.log('down arrow')
+// }
+// function callArrowLeft () {
+//     // console.log('left arrow')
+// }
+// function callArrowRight () {
+//     // console.log('right arrow')
+// }
 
 function makeArrow(info) {
     let wordY = displayHeight;
@@ -48,14 +108,14 @@ function makeArrow(info) {
 
 
     //dev mode for using arrow keys
-    document.addEventListener("keydown", function(event) {
-        if (event.key == info.key) {
-            buttonPressed = true
-            setTimeout(function() {
-                buttonPressed = false;
-            }, 100);
-        }
-    });
+    // document.addEventListener("keydown", function(event) {
+    //     if (event.key == info.key) {
+    //         buttonPressed = true
+    //         setTimeout(function() {
+    //             buttonPressed = false;
+    //         }, 100);
+    //     }
+    // });
 
 
 
@@ -88,14 +148,17 @@ function makeArrow(info) {
                     wordWithinRange = false;
                 }
 
-
-                if (wordWithinRange == true && buttonPressed == true) {
-                    console.log("ADD WORD TO POEM: " + word)
+                if (wordWithinRange == true && keyController[info.key].pressed) {
+                // if (wordWithinRange == true && buttonPressed) {
+                    // console.log("ADD WORD TO POEM: " + word)
                     addWordToPoem(word, info.key);
                     wordAdded = true;
                     setTimeout(function() {
                         wordAdded = false;
-                    }, 200);
+                        newLine();
+                    }, 400);
+
+                    
 
                 }
 
@@ -114,13 +177,15 @@ function makeArrow(info) {
                 }
 
 
-                if (wordWithinRange2 == true && buttonPressed == true) {
-                    console.log("ADD WORD TO POEM: " + word2)
+                if (wordWithinRange2 == true && keyController[info.key].pressed == true) {
+                // if (wordWithinRange2 == true && buttonPressed == true) {
+                    // console.log("ADD WORD TO POEM: " + word2)
                     addWordToPoem(word2, info.key);
                     wordAdded2 = true;
                     setTimeout(function() {
                         wordAdded2 = false;
-                    }, 200);
+                        newLine();
+                    }, 400);
 
                 }
 
@@ -136,7 +201,8 @@ function makeArrow(info) {
             text(word, width + 50, wordY); 
             text(word2, width + 50, wordY2); 
             // image(Lstomp, Lw, 100, 100, 100);
-            if (buttonPressed) {
+            if (keyController[info.key].pressed) {
+            // if (buttonPressed) {
                 image(info.stompGif, width, 100, 100, 100);
                 info.arrowGif.size(0, 0);
             } else {
@@ -201,16 +267,30 @@ var addWordToPoem = function(word, key) {
     if (key == "ArrowUp") className = "word-up"
     if (key == "ArrowRight") className = "word-right"
 
-    let poemDiv = document.getElementById("poem-area");
-    poemDiv.innerHTML += (`<div class="${className}"> ${word}</div>`);
+    // let poemDiv = document.getElementById("poem-area");
+    let currentLine = document.querySelector('.current-line')
+    currentLine.innerHTML += (`<span class="${className}"> ${word}</span>`);
 
-    console.log("CURRENT POEM: " + poem);
+    // console.log("CURRENT POEM: " + poem);
 
+    // TODO: Optimize poemDiv, currentLine, objDiv, etc.
     var objDiv = document.getElementById("poem-area");
     objDiv.scrollTop = objDiv.scrollHeight;
 
 };
 
+function newLine() {
+    let poemDiv = document.getElementById("poem-area");
+    let currentLine = document.querySelector('.current-line')
+
+    currentLine.classList.remove('current-line');
+
+    const div = document.createElement('div');
+    div.className = 'current-line';
+    poemDiv.appendChild(div);
+
+    // console.log('added new line');
+}
 
 function preload() {
     // bg_gif = createImg("images/water.gif");
@@ -340,6 +420,7 @@ function updatePlayer() {
 }
 
 function gameLoop() {
+    executeMoves();
     controllerInput();
     // updatePlayer();
     requestAnimationFrame(gameLoop);
