@@ -133,8 +133,8 @@ function makeArrow(info) {
 
             wordY -= wordSpeed;
             wordY2 -= wordSpeed;
-            text(word, width + 50, wordY); // add 50 to line up with arrows
-            text(word2, width + 50, wordY2); // add 50 to line up with arrows
+            text(word, width + 50, wordY); 
+            text(word2, width + 50, wordY2); 
             // image(Lstomp, Lw, 100, 100, 100);
             if (buttonPressed) {
                 image(info.stompGif, width, 100, 100, 100);
@@ -188,27 +188,18 @@ function controllerInput() {
 var addWordToPoem = function(word, key) {
 
     poem.push(word);
-
     const random = Math.floor(Math.random() * soundFiles.length);
-    console.log(soundFiles[random]);
+    // console.log(soundFiles[random]);
     const randomSound = soundFiles[random];
 
     var audio = new Audio('sounds/' + randomSound);
     audio.play();
 
     let className = "";
-    if (key == "ArrowLeft") {
-        className = "word-left"
-    }
-    if (key == "ArrowDown") {
-        className = "word-down"
-    }
-    if (key == "ArrowUp") {
-        className = "word-up"
-    }
-    if (key == "ArrowRight") {
-        className = "word-right"
-    }
+    if (key == "ArrowLeft") className = "word-left"
+    if (key == "ArrowDown") className = "word-down"
+    if (key == "ArrowUp") className = "word-up"
+    if (key == "ArrowRight") className = "word-right"
 
     let poemDiv = document.getElementById("poem-area");
     poemDiv.innerHTML += (`<div class="${className}"> ${word}</div>`);
@@ -309,21 +300,19 @@ function draw() {
 // }
 
 
-//PRINT
 document.addEventListener('keydown', function(event) {
+    //PRINT
     if (event.key === 'p') {
         printPageArea('poem-area-container');
         location.reload();
     }
-});
 
-
-//RELOAD GAME/REFRESH PAGE
-document.addEventListener('keydown', function(event) {
+    //RELOAD GAME/REFRESH PAGE
     if (event.key === 'r') {
         location.reload();
     }
 });
+
 
 function printPageArea(areaID) {
     console.log("printing " + areaID);
