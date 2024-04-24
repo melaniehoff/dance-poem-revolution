@@ -38,22 +38,10 @@ let arrowObjects;
 console.log("DANCE POEM REVOLUTION");
 
 const keyController = {
-    "ArrowUp": {
-        pressed: false, 
-        // func: callArrowUp
-    },
-    "ArrowDown": {
-        pressed: false, 
-        // func: callArrowDown
-    },
-    "ArrowLeft": {
-        pressed: false, 
-        // func: callArrowLeft
-    },
-    "ArrowRight": {
-        pressed: false, 
-        // func: callArrowRight
-    }
+    "ArrowUp": { pressed: false },
+    "ArrowDown": { pressed: false },
+    "ArrowLeft": { pressed: false },
+    "ArrowRight": { pressed: false }
 }
 // let noKeysPressed = true;
 
@@ -79,22 +67,8 @@ document.addEventListener("keyup", e => {
 const executeMoves = () => {
     Object.keys(keyController).forEach(key => {
         keyController[key].pressed 
-        // && keyController[key].func()
     })
 }
-
-// function callArrowUp () {
-//     // console.log('up arrow')
-// }
-// function callArrowDown () {
-//     // console.log('down arrow')
-// }
-// function callArrowLeft () {
-//     // console.log('left arrow')
-// }
-// function callArrowRight () {
-//     // console.log('right arrow')
-// }
 
 function makeArrow(info) {
     let wordY = displayHeight;
