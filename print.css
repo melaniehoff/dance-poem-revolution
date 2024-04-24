@@ -1,0 +1,15 @@
+#logo {
+    width: 150pt !important;
+}
+
+#poem-area {
+    padding: 5pt !important;
+    margin: 5pt !important;
+    margin-top: 40pt !important;
+    font-size: 18pt !important;
+/*    overflow-y: scroll;
+    position: fixed;
+    right: 0em;
+    top: 13vh;*/
+    height: fit-content !important;
+}
